@@ -20,9 +20,28 @@ const List = ({ todos, onUpdate, onDelete }) => {
 
   const filteredTodos = getFilteredData();
 
+  const getAnalyzedData = () => {
+    const totalCount = todos.length;
+    const donCount = todos.filter((todo) => todo.isDone).length;
+    const notDoneCount = totalCount - donCount;
+
+    return {
+      totalCount,
+      donCount,
+      notDoneCount,
+    };
+  };
+
+  const { totalCount, donCount, notDoneCount } = getAnalyzedData();
+
   return (
     <div className="List">
       <h4>Todo List 👍</h4>
+      <div>
+        <div>total : {totalCount}</div>
+        <div>done : {donCount}</div>
+        <div>notDone : {notDoneCount}</div>
+      </div>
       <input
         value={search}
         onChange={onChangeSearch}
