@@ -91,7 +91,7 @@ function App() {
         }}
       >
         <Editor />
-        <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+        <List />
       </TodoContext.Provider>
     </div>
   );
